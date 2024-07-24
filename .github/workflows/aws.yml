@@ -93,7 +93,7 @@ jobs:
         cluster: ${{ env.ECS_CLUSTER }}
         #wait-for-service-stability: true
         run-task: true
-        run-task-subnets: default
+        run-task-subnets: subnet-0123456789abcdef0
         run-task-launch-type: FARGATE
         wait-for-task-stopped: false
 
