@@ -93,4 +93,9 @@ jobs:
         cluster: ${{ env.ECS_CLUSTER }}
         #wait-for-service-stability: true
         run-task: true
+        run-task-subnets: true
+        run-task-launch-type: FARGATE
         wait-for-task-stopped: false
+
+
+   
