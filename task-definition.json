@@ -1,39 +1,34 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:851725652419:task-definition/one-off-input-task-definition:10",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:851725652419:task-definition/one-off-task-definition-01:1",
     "containerDefinitions": [
         {
-            "name": "one-off-input",
-            "image": "851725652419.dkr.ecr.us-west-2.amazonaws.com/one-off-input:5cbe141438ea81c5cd8671c45146eb3386ecf427",
+            "name": "app",
+            "image": "851725652419.dkr.ecr.us-west-2.amazonaws.com/one-off-input:c2eee9db321d6f2be8f5fa10199ad83c93e58864",
             "cpu": 0,
-            "portMappings": [
-                {
-                    "name": "one-off-input-tcp",
-                    "containerPort": 80,
-                    "hostPort": 80,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                }
-            ],
+            "portMappings": [],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/one-off-input-task-definition",
+                    "awslogs-group": "/ecs/one-off-task-definition-01",
                     "awslogs-create-group": "true",
                     "awslogs-region": "us-west-2",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             },
             "systemControls": []
         }
     ],
-    "family": "one-off-input-task-definition",
+    "family": "one-off-task-definition-01",
     "executionRoleArn": "arn:aws:iam::851725652419:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 10,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -70,13 +65,13 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "3072",
+    "cpu": "256",
+    "memory": "512",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-07-24T19:25:21.404Z",
-    "registeredBy": "arn:aws:iam::851725652419:user/shesaave",
+    "registeredAt": "2024-07-24T20:23:51.724Z",
+    "registeredBy": "arn:aws:sts::851725652419:assumed-role/Admin/shesaave-Isengard",
     "tags": []
 }
