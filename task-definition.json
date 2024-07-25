@@ -27,7 +27,12 @@
     ],
     "family": "one-off-task-definition-01",
     "executionRoleArn": "arn:aws:iam::851725652419:role/ecsTaskExecutionRole",
-    "networkMode": "none",
+    "networkMode": "awsvpc",
+     "awsvpcConfiguration": {
+        "subnets": ["subnet-09fd6c56a6cd5c524", "subnet-05c7eb1ad42528280", "subnet-00d4079c8793761f6", "subnet-03f4c7488cbdb4460"],
+        "securityGroups": ["sg-0b6bf875a79999c7f"],
+        "assignPublicIp": "ENABLED"
+    },
     "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
