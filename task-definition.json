@@ -27,7 +27,7 @@
     ],
     "family": "one-off-task-definition-01",
     "executionRoleArn": "arn:aws:iam::851725652419:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
+    "networkMode": "none",
     "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
