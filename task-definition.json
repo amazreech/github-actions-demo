@@ -56,6 +56,16 @@
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
+
+        
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
     ],
     "cpu": "256",
     "memory": "512",
