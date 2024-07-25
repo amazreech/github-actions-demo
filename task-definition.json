@@ -15,7 +15,7 @@
                 "options": {
                     "awslogs-group": "/ecs/one-off-task-definition-01",
                     "awslogs-create-group": "true",
-                    "awslogs-region": "us-west-2",
+                    "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
             },
