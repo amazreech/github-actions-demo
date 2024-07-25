@@ -94,7 +94,7 @@ jobs:
         #wait-for-service-stability: true
         run-task: true
         run-task-subnets: none
-        run-task-launch-type: FARGATE
+        #run-task-launch-type: FARGATE
         wait-for-task-stopped: false
 
 
