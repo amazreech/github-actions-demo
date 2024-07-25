@@ -57,14 +57,6 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "none",
-        "none"
-    ],
-    "requiresCompatibilities": [
-        "none"
-    ],
     "cpu": "256",
     "memory": "512",
     "runtimePlatform": {
