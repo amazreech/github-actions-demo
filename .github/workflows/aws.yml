@@ -94,7 +94,7 @@ jobs:
         cluster: ${{ env.ECS_CLUSTER }}
         #wait-for-service-stability: true
         run-task: true
-        run-task-subnets: subnet-09fd6c56a6cd5c524, subnet-05c7eb1ad42528280, subnet-00d4079c8793761f6, subnet-03f4c7488cbdb4460
-        run-task-security-groups: sg-0b6bf875a79999c7f
+        run-task-subnets: subnet-0b55b050c50fa69fc, subnet-0e6bad97ae3070da7, subnet-06e1eee5d79c9c759, subnet-04f946511ec06f6cc, subnet-0db3feae90e6e3739, subnet-06135d9ae548a05c3
+        run-task-security-groups: sg-09039e6de81d27e9c
         run-task-launch-type: FARGATE
         wait-for-task-stopped: false
