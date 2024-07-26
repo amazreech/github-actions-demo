@@ -87,15 +87,15 @@ jobs:
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
-      uses: shesaave/amazon-ecs-deploy-task-definition@794d0cba9b5c9dbf2fa3d6af06602cd661c7e0e7
+      uses: shesaave/amazon-ecs-deploy-task-definition@2e296b38bbcf316c43857406a9398126b3ccb1d9
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         #service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         #wait-for-service-stability: false 
-        #run-task: false
-        #run-task-subnets: subnet-0b55b050c50fa69fc, subnet-0e6bad97ae3070da7, subnet-04f946511ec06f6cc, subnet-06135d9ae548a05c3
-        #run-task-assign-public-IP: ENABLED
-        #run-task-security-groups: sg-09039e6de81d27e9c
-        #run-task-launch-type: FARGATE
-        #wait-for-task-stopped: true
+        run-task: true
+        run-task-subnets: subnet-0b55b050c50fa69fc, subnet-0e6bad97ae3070da7, subnet-04f946511ec06f6cc, subnet-06135d9ae548a05c3
+        run-task-assign-public-IP: ENABLED
+        run-task-security-groups: sg-09039e6de81d27e9c
+        run-task-launch-type: FARGATE
+        wait-for-task-stopped: false
