@@ -98,4 +98,4 @@ jobs:
         run-task-assign-public-IP: ENABLED
         run-task-security-groups: sg-09039e6de81d27e9c
         run-task-launch-type: FARGATE
-        wait-for-task-stopped: true
+        wait-for-task-stopped: false
