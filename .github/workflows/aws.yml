@@ -90,7 +90,7 @@ jobs:
       uses: shesaave/amazon-ecs-deploy-task-definition@794d0cba9b5c9dbf2fa3d6af06602cd661c7e0e7
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: false
+        service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: false 
         run-task: false
