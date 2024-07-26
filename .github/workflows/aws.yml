@@ -90,9 +90,9 @@ jobs:
       uses: shesaave/amazon-ecs-deploy-task-definition@794d0cba9b5c9dbf2fa3d6af06602cd661c7e0e7
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        #service: ${{ env.ECS_SERVICE }}
+        service: false
         cluster: ${{ env.ECS_CLUSTER }}
-        #wait-for-service-stability: true
+        wait-for-service-stability: false 
         run-task: false
         #run-task-subnets: subnet-0b55b050c50fa69fc, subnet-0e6bad97ae3070da7, subnet-04f946511ec06f6cc, subnet-06135d9ae548a05c3
         #run-task-assign-public-IP: ENABLED
