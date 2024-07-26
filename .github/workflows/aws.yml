@@ -34,7 +34,7 @@ on:
 env:
   AWS_REGION: us-east-1   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: one-off-input 
-  #ECS_SERVICE: app-testing-service02     # set this to your Amazon ECR repository name
+  ECS_SERVICE: app-testing-service02     # set this to your Amazon ECR repository name
   ECS_CLUSTER: one-off-cluster01                # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
@@ -90,9 +90,9 @@ jobs:
       uses: shesaave/amazon-ecs-deploy-task-definition@231f294ad09b0654f5e752e215919ffc6ff26145
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        #service: ${{ env.ECS_SERVICE }}
+        service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
-        #wait-for-service-stability: true
+        wait-for-service-stability: true
         run-task: true
         run-task-subnets: subnet-0b55b050c50fa69fc, subnet-0e6bad97ae3070da7, subnet-04f946511ec06f6cc, subnet-06135d9ae548a05c3
         run-task-assign-public-IP: ENABLED
