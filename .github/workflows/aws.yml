@@ -34,7 +34,7 @@ on:
 env:
   AWS_REGION: us-east-1   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: one-off-input 
-  ECS_SERVICE: app-testing-service04    # set this to your Amazon ECR repository name
+  #ECS_SERVICE: app-testing-service04    # set this to your Amazon ECR repository name
   ECS_CLUSTER: one-off-cluster01                # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
@@ -97,11 +97,3 @@ jobs:
         run-task-security-groups: sg-09039e6de81d27e9c
         run-task-launch-type: FARGATE
         wait-for-task-stopped: false
-        
-    - name: Deploy Amazon ECS task definition With Service Only 
-      uses: shesaave/amazon-ecs-deploy-task-definition@aeebecd41c28ec26b44491318ab8235a2be01aa9
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: true
