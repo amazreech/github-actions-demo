@@ -96,7 +96,7 @@ jobs:
         run-task-assign-public-IP: ENABLED
         run-task-security-groups: sg-09039e6de81d27e9c
         run-task-launch-type: FARGATE
-        wait-for-task-stopped: true
+        wait-for-task-stopped: false
         
     - name: Deploy Amazon ECS task definition With Service Only 
       uses: shesaave/amazon-ecs-deploy-task-definition@aeebecd41c28ec26b44491318ab8235a2be01aa9
