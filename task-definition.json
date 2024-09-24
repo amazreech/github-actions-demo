@@ -1,36 +1,44 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:851725652419:task-definition/one-off-task-definition-01:5",
+    "taskDefinitionArn": "arn:aws:ecs:eu-central-1:413216369237:task-definition/GA-one-off-task-demo-task-definition:1",
     "containerDefinitions": [
         {
             "name": "app",
-            "image": "851725652419.dkr.ecr.us-east-1.amazonaws.com/one-off-input:21bb416fd06398062008bbf9d373d07d0e5570a8",
+            "image": "413216369237.dkr.ecr.us-east-1.amazonaws.com/github-actions-repo",
             "cpu": 0,
-            "portMappings": [],
+            "portMappings": [
+                {
+                    "name": "app-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/one-off-task-definition-01",
+                    "awslogs-group": "/ecs/GA-one-off-task-demo-task-definition",
+                    "mode": "non-blocking",
                     "awslogs-create-group": "true",
-                    "awslogs-region": "us-east-1",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "eu-central-1",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             },
             "systemControls": []
         }
     ],
-    "family": "one-off-task-definition-01",
-    "executionRoleArn": "arn:aws:iam::851725652419:role/ecsTaskExecutionRole",
+    "family": "GA-one-off-task-demo-task-definition",
+    "executionRoleArn": "arn:aws:iam::413216369237:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "awsvpcConfiguration": {
-        "subnets": [ "subnet-0b55b050c50fa69fc", "subnet-0e6bad97ae3070da7", "subnet-06e1eee5d79c9c759", "subnet-04f946511ec06f6cc", "subnet-0db3feae90e6e3739", "subnet-06135d9ae548a05c3"],
-        "securityGroups": ["sg-09039e6de81d27e9c"],
-        "assignPublicIp": "ENABLED"
-    },
-    "revision": 5,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -45,6 +53,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -67,13 +78,13 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "256",
-    "memory": "512",
+    "cpu": "1024",
+    "memory": "3072",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-07-25T18:24:18.618Z",
-    "registeredBy": "arn:aws:iam::851725652419:user/shesaave",
+    "registeredAt": "2024-09-24T18:49:05.868Z",
+    "registeredBy": "arn:aws:sts::413216369237:assumed-role/Admin/reechak-Isengard",
     "tags": []
 }
