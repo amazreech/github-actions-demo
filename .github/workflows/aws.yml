@@ -91,8 +91,8 @@ jobs:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         cluster: ${{ env.ECS_CLUSTER }}
         run-task: true
-        run-task-subnets: subnet-0b55b050c50fa69fc, subnet-0e6bad97ae3070da7, subnet-04f946511ec06f6cc, subnet-06135d9ae548a05c3
+        run-task-subnets: subnet-0a8c655cf67ad8569, subnet-050d0ff4f68609a44, subnet-007a219dab144c08b, subnet-0f79c756bc6800249
         run-task-assign-public-IP: ENABLED
-        run-task-security-groups: sg-09039e6de81d27e9c
+        run-task-security-groups: sg-0bdcba79e0cb901a4
         run-task-launch-type: FARGATE
         wait-for-task-stopped: false
