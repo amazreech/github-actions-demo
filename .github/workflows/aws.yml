@@ -36,7 +36,7 @@ env:
   AWS_REGION: us-west-2                         # Preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: github-actions-repo           # Amazon ECR repository name
   #ECS_SERVICE: github-actions-demo-service     # Amazon ECS Service name
-  ECS_CLUSTER: github-actions-demo-cluster      # Amazon ECS cluster name
+  ECS_CLUSTER: Test_Cluster                     # Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json     # Path to your Amazon ECS task definition file, e.g. .aws/task-definition.json
   CONTAINER_NAME: app                           # set this to the name of the container in the containerDefinitions section of your task definition
 
