@@ -28,18 +28,17 @@
 name: Deploy to Amazon ECS
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: us-east-1   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: one-off-input 
-  #ECS_SERVICE: app-testing-service04    # set this to your Amazon ECR repository name
-  ECS_CLUSTER: one-off-cluster01                # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: app          # set this to the name of the container in the
-                                               # containerDefinitions section of your task definition
+  AWS_REGION: us-west-2                         # Preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: github-actions-repo           # Amazon ECR repository name
+  #ECS_SERVICE: github-actions-demo-service     # Amazon ECS Service name
+  ECS_CLUSTER: github-actions-demo-cluster      # Amazon ECS cluster name
+  ECS_TASK_DEFINITION: task-definition.json     # Path to your Amazon ECS task definition file, e.g. .aws/task-definition.json
+  CONTAINER_NAME: app                           # set this to the name of the container in the containerDefinitions section of your task definition
 
 permissions:
   contents: read
@@ -80,14 +79,14 @@ jobs:
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      uses: aws-actions/amazon-ecs-render-task-definition@v2
       with:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition With Single Task
-      uses: shesaave/amazon-ecs-deploy-task-definition@aeebecd41c28ec26b44491318ab8235a2be01aa9
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v2
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         cluster: ${{ env.ECS_CLUSTER }}
