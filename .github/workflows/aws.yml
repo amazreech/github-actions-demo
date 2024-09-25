@@ -8,7 +8,7 @@ on:
 env:
   AWS_REGION: us-west-2                         # Preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: github-actions-repo           # Amazon ECR repository name
-  ECS_SERVICE: github-actions-demo-service     # Amazon ECS Service name
+  # ECS_SERVICE: github-actions-demo-service     # Amazon ECS Service name
   ECS_CLUSTER: Test_Cluster                     # Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json     # Path to your Amazon ECS task definition file, e.g. .aws/task-definition.json
   CONTAINER_NAME: app                           # set this to the name of the container in the containerDefinitions section of your task definition
@@ -62,13 +62,19 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v2
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{env.ECS_SERVICE}}
+        # service: ${{env.ECS_SERVICE}}
+        run-task: true
+        run-task-subnets: subnet-0a8c655cf67ad8569, subnet-050d0ff4f68609a44, subnet-007a219dab144c08b, subnet-0f79c756bc6800249
+        run-task-assign-public-IP: ENABLED
+        run-task-security-groups: sg-0bdcba79e0cb901a4
+        run-task-launch-type: FARGATE
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-task-stopped: false
         
 # --------------------------
 # run-task: true
-# run-task-subnets: subnet-0a8c655cf67ad8569, subnet-050d0ff4f68609a44, subnet-007a219dab144c08b, subnet-0f79c756bc6800249
-# run-task-assign-public-IP: ENABLED
-# run-task-security-groups: sg-0bdcba79e0cb901a4
 # run-task-launch-type: FARGATE
+# run-task-subnets: subnet-0a8c655cf67ad8569, subnet-050d0ff4f68609a44, subnet-007a219dab144c08b, subnet-0f79c756bc6800249
+# run-task-security-groups: sg-0bdcba79e0cb901a4
+# run-task-assign-public-IP: ENABLED
+
