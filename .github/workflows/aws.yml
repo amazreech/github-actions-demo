@@ -56,7 +56,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         # task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        task-definition: ${{env.ECS_TASK_DEFINITION-ARN}} 
+        task-definition-arn: ${{env.ECS_TASK_DEFINITION-ARN}} 
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
