@@ -5,4 +5,4 @@ var intervalId = setInterval(() => {
 setTimeout(() => {
   clearInterval(intervalId);
   console.log("Program finished after 3 minutes");
-}, 120000); // 2 minutes
+}, 180000); // 3 minutes
