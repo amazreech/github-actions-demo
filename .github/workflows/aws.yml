@@ -10,9 +10,9 @@ env:
   ECR_REPOSITORY: github-actions-repo                                                                      # Amazon ECR repository name
   ECS_SERVICE: github-actions-demo-service                                                                 # Amazon ECS Service name
   ECS_CLUSTER: Test_Cluster                                                                                # Amazon ECS cluster name
-  ECS_TASK_DEFINITION: task-definition.json                                                                # Amazon ECS task definition file path, e.g. .aws/task-definition.json
+  # ECS_TASK_DEFINITION: task-definition.json                                                                # Amazon ECS task definition file path, e.g. .aws/task-definition.json
   CONTAINER_NAME: app                                                                                      # set this to the name of the container in the containerDefinitions section of your task definition
-  # ECS_TASK_DEFINITION-ARN: arn:aws:ecs:us-west-2:413216369237:task-definition/GA-fetch-task-definition:4   # Task Definition Arn
+  ECS_TASK_DEFINITION-ARN: arn:aws:ecs:us-west-2:413216369237:task-definition/GA-fetch-task-definition:4   # Task Definition Arn
 
 permissions:
   contents: read
@@ -55,7 +55,7 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
+        task-definition-arn: ${{ env.ECS_TASK_DEFINITION-ARN }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
